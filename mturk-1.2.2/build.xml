@@ -454,6 +454,18 @@
     <delete dir="${doc.dir}" />
     <delete dir="${dist.dir}" />
   </target>
+  <target name="release" description="Deploys the artifact to maven repository." depends="jar">
+    <exec executable="mvn">
+    	<arg value="deploy:deploy-file"/>
+    	<arg value="-DgeneratePom=false"/>
+    	<arg value="-Dfile=${sdk.jar}"/>
+    	<arg value="-Durl=${repo.url}"/>
+    	<arg value="-DgroupId=com.amazonaws"/>
+    	<arg value="-DartifactId=mturk"/>
+    	<arg value="-Dpackaging=jar"/>
+    	<arg value="-Dversion=${major.version}.${minor.version}.${internal.version}"/>
+    </exec>
+  </target>
 
   <target name="help" description="Show ant targets">
     <echo message="Run 'ant helloworld' to run the MTurkHelloWorld application." />
@@ -470,6 +482,7 @@
     <echo message="Run 'ant dist' to create the all distributables of the sdk." />
     <echo message="Run 'ant unix' to create the gzip distributable of the sdk for unix." />
     <echo message="Run 'ant windows' to create the zip distributable of the sdk for windows." />
+    <echo message="Run 'ant release' to release to maven repository." />
   </target>
 
 </project>
