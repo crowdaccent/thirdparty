@@ -470,8 +470,26 @@
     </exec>
   	</sequential>
   </macrodef>
+  <macrodef name="mvn-release-pom">
+  	<attribute name="jar"/>
+  	<attribute name="artifactId"/>
+  	<attribute name="pomFile"/>
+	<sequential>
+    <exec executable="mvn">
+    	<arg value="deploy:deploy-file"/>
+    	<arg value="-DgeneratePom=true"/>
+    	<arg value="-Dfile=@{jar}"/>
+    	<arg value="-Durl=${repo.url}"/>
+    	<arg value="-DgroupId=com.amazonaws"/>
+    	<arg value="-DartifactId=@{artifactId}"/>
+    	<arg value="-Dpackaging=jar"/>
+    	<arg value="-Dversion=${major.version}.${minor.version}.${internal.version}"/>
+    	<arg value="-DpomFile=@{pomFile}"/>
+    </exec>
+  	</sequential>
+  </macrodef>
   <target name="release" description="Deploys the artifact to maven repository." depends="jar">
-  <mvn-release jar="${sdk.jar}" artifactId="${sdk.name}"/>
+  <mvn-release-pom jar="${sdk.jar}" artifactId="${sdk.name}" pomFile="${sdk.name}-${major.version}.${minor.version}.${internal.version}.pom"/>
   <mvn-release jar="${dataschema.jar}" artifactId="${requester.dataschema.name}"/>
   <mvn-release jar="${stub.jar}" artifactId="${requester.service.name}"/>
   </target>
