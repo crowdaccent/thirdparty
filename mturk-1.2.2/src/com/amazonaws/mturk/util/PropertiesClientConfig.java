@@ -94,9 +94,14 @@ public class PropertiesClientConfig extends ClientConfig {
     try {
       props.load(new java.io.FileInputStream(new java.io.File(propertiesFilename)));
     } catch (IOException e) {
-      System.err.println("There was a problem reading your properties file from " + propertiesFilename );
-      System.err.println("The exception was " + e.toString() );
-      throw new RuntimeException("Cannot load configuration properties file from " + propertiesFilename, e);
+      try {
+    	  System.out.println("There was a problem reading your properties file from " + propertiesFilename );
+    	  props.load( this.getClass().getResourceAsStream(propertiesFilename));
+      }catch (IOException ie){
+    	  System.err.println("There was a problem reading your properties file using classpath from " + propertiesFilename );
+    	  System.err.println("The exception was " + ie.toString() );
+    	  throw new RuntimeException("Cannot load configuration properties file from " + propertiesFilename, ie);
+      }
     }
     
     // required settings
