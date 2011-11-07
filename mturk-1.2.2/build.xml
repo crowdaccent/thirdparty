@@ -454,17 +454,26 @@
     <delete dir="${doc.dir}" />
     <delete dir="${dist.dir}" />
   </target>
-  <target name="release" description="Deploys the artifact to maven repository." depends="jar">
+  <macrodef name="mvn-release">
+  	<attribute name="jar"/>
+  	<attribute name="artifactId"/>
+	<sequential>
     <exec executable="mvn">
     	<arg value="deploy:deploy-file"/>
-    	<arg value="-DgeneratePom=false"/>
-    	<arg value="-Dfile=${sdk.jar}"/>
+    	<arg value="-DgeneratePom=true"/>
+    	<arg value="-Dfile=@{jar}"/>
     	<arg value="-Durl=${repo.url}"/>
     	<arg value="-DgroupId=com.amazonaws"/>
-    	<arg value="-DartifactId=mturk"/>
+    	<arg value="-DartifactId=@{artifactId}"/>
     	<arg value="-Dpackaging=jar"/>
     	<arg value="-Dversion=${major.version}.${minor.version}.${internal.version}"/>
     </exec>
+  	</sequential>
+  </macrodef>
+  <target name="release" description="Deploys the artifact to maven repository." depends="jar">
+  <mvn-release jar="${sdk.jar}" artifactId="${sdk.name}"/>
+  <mvn-release jar="${dataschema.jar}" artifactId="${requester.dataschema.name}"/>
+  <mvn-release jar="${stub.jar}" artifactId="${requester.service.name}"/>
   </target>
 
   <target name="help" description="Show ant targets">
