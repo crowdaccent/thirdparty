@@ -64,7 +64,7 @@ public class HITQuestion {
     p.setProperty( "file.resource.loader.cache", "true");
     p.setProperty( "file.resource.loader.modificationCheckInterval", "2");
     
-    engine.setProperty( VelocityEngine.RUNTIME_LOG_LOGSYSTEM, log);    
+    //engine.setProperty( VelocityEngine.RUNTIME_LOG_LOGSYSTEM, log);    
     engine.init(p);
 
     velocityTemplate = engine.getTemplate( f.getName() );
