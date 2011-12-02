@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<project name="ExternalLibs" default="release" basedir=".">
+
+	<property file="build.properties" />
+	<macrodef name="mvn-release-pom">
+		<attribute name="jar"/>
+		<attribute name="artifactId"/>
+		<attribute name="pomFile"/>
+		<attribute name="groupId"/>
+		<attribute name="version"/>
+		<sequential>
+			<exec executable="mvn">
+				<arg value="deploy:deploy-file"/>
+				<arg value="-DgeneratePom=true"/>
+				<arg value="-Dfile=@{jar}"/>
+				<arg value="-Durl=${repo.url}"/>
+				<arg value="-DgroupId=@{groupId}" />
+				<arg value="-DartifactId=@{artifactId}" />
+				<arg value="-Dpackaging=jar" />
+				<arg value="-Dversion=@{version}" />
+				<arg value="-DpomFile=@{pomFile}" />
+			</exec>
+		</sequential>
+	</macrodef>
+	<target name="release" description="Deploys the artifact to maven repository.">
+		<mvn-release-pom jar="commons-httpclient-contrib-3.1.jar" artifactId="commons-httpclient-contrib" groupId="commons-httpclient" version="3.1" pomFile="commons-httpclient-contrib-3.1.pom" />
+		<mvn-release-pom jar="commons-math-2.2.jar" artifactId="commons-math" groupId="org.apache.commons" version="2.2" pomFile="commons-math-2.2.pom" />
+		<mvn-release-pom jar="weka.jar" artifactId="weka" groupId="weka" version="1.0" pomFile="weka-1.0.pom" />
+	</target>
+</project>
