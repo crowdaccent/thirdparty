@@ -57,15 +57,16 @@ public class HITQuestion {
 
     Properties p = new Properties();
 
-    p.setProperty( "resource.loader", "file" );
+    p.setProperty( "resource.loader", "file,class" );
     p.setProperty( "file.resource.loader.class", 
         "org.apache.velocity.runtime.resource.loader.FileResourceLoader" );
     p.setProperty( "file.resource.loader.path", f.getParent() == null ? "." : f.getParent());
     p.setProperty( "file.resource.loader.cache", "true");
     p.setProperty( "file.resource.loader.modificationCheckInterval", "2");
     p.setProperty( "input.encoding", "UTF-8");
+    p.setProperty("class.resource.loader.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
     
-    engine.setProperty( VelocityEngine.RUNTIME_LOG_LOGSYSTEM, log);    
+    //engine.setProperty( VelocityEngine.RUNTIME_LOG_LOGSYSTEM, log);    
     engine.init(p);
 
     velocityTemplate = engine.getTemplate( f.getName() );
