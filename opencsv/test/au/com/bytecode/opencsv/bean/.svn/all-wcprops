@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/opencsv/!svn/ver/109/trunk/test/au/com/bytecode/opencsv/bean
+END
+MockBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/opencsv/!svn/ver/33/trunk/test/au/com/bytecode/opencsv/bean/MockBean.java
+END
+ColumnPositionMappingStrategyTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/opencsv/!svn/ver/90/trunk/test/au/com/bytecode/opencsv/bean/ColumnPositionMappingStrategyTest.java
+END
+BeanToCsvTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/opencsv/!svn/ver/109/trunk/test/au/com/bytecode/opencsv/bean/BeanToCsvTest.java
+END
+CsvToBeanTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/opencsv/!svn/ver/81/trunk/test/au/com/bytecode/opencsv/bean/CsvToBeanTest.java
+END
+HeaderColumnNameTranslateMappingStrategyTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svnroot/opencsv/!svn/ver/81/trunk/test/au/com/bytecode/opencsv/bean/HeaderColumnNameTranslateMappingStrategyTest.java
+END
+HeaderColumnNameMappingStrategyTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/opencsv/!svn/ver/105/trunk/test/au/com/bytecode/opencsv/bean/HeaderColumnNameMappingStrategyTest.java
+END

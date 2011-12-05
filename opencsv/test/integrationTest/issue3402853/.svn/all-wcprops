@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/opencsv/!svn/ver/108/trunk/test/integrationTest/issue3402853
+END
+HeaderColumnNameMappingStrategyUserTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/opencsv/!svn/ver/107/trunk/test/integrationTest/issue3402853/HeaderColumnNameMappingStrategyUserTest.java
+END
+user.csv
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/opencsv/!svn/ver/107/trunk/test/integrationTest/issue3402853/user.csv
+END
+MockUserBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/opencsv/!svn/ver/108/trunk/test/integrationTest/issue3402853/MockUserBean.java
+END
